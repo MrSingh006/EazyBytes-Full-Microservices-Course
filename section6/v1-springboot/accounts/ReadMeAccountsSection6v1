@@ -1,0 +1,30 @@
+In This section we are learning about :-
+
+1) How to read properties from property files.
+    a) Using @Value annotation
+    b) Using @Environment interface : it reads properties from environment variables of system.
+    c) Using @ConfigurationProperties annotation : to do this create a record or java file
+       as data carrier with only getters and final constructor inside DTO package and write
+       @EnableConfigurationProperties over our MAIN file
+2) How to add different profiles(prod,qa) and how to activate them.
+    a) Internal Approach : We can activate them by mentioning activate.profile inside our
+       application.properties(default) file. It is not recommended approach as it requires restart
+       of our application on each activate.
+    b) External Approach : It is recommended as it does not require restart.
+       (i) Command Line : Right click main class(AccountsApplication) -> More run/debug ->
+           modify run configuration -> in 'program arguments' text field type ->
+           --spring.profiles.active=prod --build.version=1.1
+           click "ok" and then restart application, we will get changed profile.
+       (ii) JVM System variables : Right click main class(AccountsApplication) -> More run/debug ->
+            modify run configuration -> Remove 'program arguments'(if present) -> Modify options ->
+            Add VM options(we will get new text field with "Vm options") ->
+            -Dspring.profiles.active=prod -Dbuild.version=1.3 (Just replace '--' with '-D')
+            click "ok" and then restart application, we will get changed profile.
+       (iii) Environment variables : Right click main class(AccountsApplication) -> More
+             run/debug -> modify run configuration -> Remove 'program arguments'(if present)/
+             Remove 'Vm options'(if present) -> Environment variables ->
+             SPRING_PROFILES_ACTIVE=prod;BUILD_VERSION=1.8 (values should be separated with ";"
+             and everything should be in uppercase "." shuld be replaced with "_")
+    c) If all Using Command Line, JVM System variables and Using Environment variables are
+       present than order of precedence will be:
+       Command Line > JVM System variables > Environment variables
