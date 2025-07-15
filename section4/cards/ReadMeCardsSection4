@@ -1,0 +1,10 @@
+We are making docker image of cards-ms through Google-Jib. To do That :-
+
+NOTE: Google-Jib only works for java applications where as paketo-buildpacks works for any
+        application.
+
+1) Write packaging as <packaging>jar</packaging> inside pom.xml.
+2) To use Google-Jib go to google-jib git hub page and from there go to jib for maven
+    and copy maven related <plugin> of google jib in our cards-ms.
+3) Open terminal at loans-ms location and write command 'mvn compile jib:dockerBuild' by using this
+    command we can build our ms by google-jib

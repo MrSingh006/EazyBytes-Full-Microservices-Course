@@ -1,0 +1,7 @@
+We are making docker image of loans-ms through buildpacks(paketo). To do That :-
+
+1) Write packaging as <packaging>jar</packaging> inside pom.xml.
+2) To give name to our docker image add <image><name>pauravsingh/loans:s4</name></image> in pom.xml
+    OR <image><name>pauravsingh/${project.artifactId}:s4</name></image>
+3) Open terminal at loans-ms location and write command 'mvn spring-boot:build-image' by using this
+    command we can build our ms by buildpacks(paketo)
